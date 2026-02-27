@@ -1,0 +1,1394 @@
+:root {
+  --primary: #a7c7e7;
+  --background: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Ubuntu", "Song-Myung", sans-serif;
+  background-color: var(--background);
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Mencegah horizontal scroll */
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: rgba(31, 42, 46, 0.647); /* hitam transparan */
+  backdrop-filter: blur(10px); /* membuat isi di belakang blur */
+  -webkit-backdrop-filter: blur(10px); /* untuk Safari */
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.navbar-logo h1 {
+  color: #ffd700;
+}
+
+.navbar-logo span {
+  color: #ffd700;
+}
+
+/* Logo */
+.navbar .navbar-logo img {
+  height: 50px;
+  object-fit: contain;
+  padding-left: 30px;
+}
+
+/* Navbar menu */
+.navbar-nav {
+  display: flex;
+  gap: 2rem; /* Memberi jarak antar link */
+}
+
+.navbar-nav a {
+  color: #fff;
+  font-size: 1rem;
+  font-family: "song myung", sans-serif;
+  transition: color 0.3s ease;
+}
+
+.navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--background);
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
+
+.navbar-nav a:hover {
+  color: #ffd700;
+}
+
+.navbar .navbar-extra a {
+  color: #fff;
+  margin: 0 0.5rem;
+}
+
+.navbar .navbar-extra a:hover {
+  color: #ffd700;
+}
+
+#Menu {
+  display: none;
+}
+
+/* NAVBAR END */
+
+/* Media queries*/
+/* laptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 90%;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  #Menu {
+    display: inline-block;
+  }
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: rgba(31, 42, 46, 0.647);
+    width: 30rem;
+    height: 100vh;
+    transition: 0.3s;
+  }
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: rgba(31, 42, 46, 0.647);
+    width: 30rem;
+    height: 100vh;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    transition: right 0.3s ease;
+    font-size: 5rem;
+  }
+}
+
+/* mobile */
+@media (max-width: 450px) {
+  #Menu {
+    display: inline-block;
+  }
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: rgba(31, 42, 46, 0.647);
+    width: 30rem;
+    height: 100vh;
+    transition: 0.3s;
+  }
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: rgba(31, 42, 46, 0.647);
+    width: 30rem;
+    height: 100vh;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    transition: right 0.3s ease;
+    font-size: 5rem;
+  }
+}
+
+/* Footer Section */
+.footer {
+  background-color: #0e2f44;
+  color: #fff;
+  padding: 4rem 2rem 1.5rem;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-about h3,
+.footer-links h3,
+.footer-contact h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #e0c200; /* Gold color for titles */
+  font-family: "Song Myung", serif;
+}
+
+.footer-about p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #f0f0f0;
+  margin-bottom: 1.5rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  color: #f0f0f0;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #f0f0f0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: #e0c200;
+  color: #0e2f44;
+  border-color: #e0c200;
+  transform: translateY(-5px) scale(1.1);
+}
+
+.social-icon i {
+  width: 20px; /* Feather icon size */
+  height: 20px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-links ul li a {
+  color: #f0f0f0;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  display: inline-block; /* For transform effect */
+}
+
+.footer-links ul li a:hover {
+  color: #e0c200;
+  transform: translateX(5px);
+}
+
+.footer-contact .contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+  color: #f0f0f0;
+}
+
+.footer-contact .contact-item i {
+  margin-right: 0.8rem;
+  color: #e0c200; /* Gold color for contact icons */
+  width: 18px;
+  height: 18px;
+}
+
+.footer-bottom {
+  text-align: center; /* Tetap rata tengah untuk copyright */
+  padding-top: 1.5rem;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: #a7c7e7; /* Lighter blue for copyright */
+}
+
+/* Responsive Design for Footer */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    /* text-align: center; -- Hapus atau timpa ini untuk rata kiri */
+  }
+
+  .footer-about,
+  .footer-links,
+  .footer-contact {
+    padding-bottom: 1.5rem; /* Add spacing between stacked sections */
+    text-align: left; /* Teks rata kiri untuk semua bagian ini */
+  }
+
+  .social-links {
+    justify-content: flex-start; /* Rata kiri untuk ikon sosial */
+  }
+
+  .footer-links ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Rata kiri untuk list items */
+  }
+
+  .footer-links ul li {
+    margin-bottom: 0.6rem;
+  }
+
+  .footer-contact .contact-item {
+    justify-content: flex-start; /* Rata kiri untuk item kontak */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 3rem 1rem 1rem;
+  }
+
+  .footer-about h3,
+  .footer-links h3,
+  .footer-contact h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-about p,
+  .footer-links ul li a,
+  .footer-contact .contact-item span {
+    font-size: 0.9rem;
+  }
+}
+:root {
+  --primary: #a7c7e7;
+  --background: #ffffff;
+  --text-dark: #0e2f44; /* Warna teks gelap utama */
+  --text-medium: #2c3e50; /* Warna teks sedang */
+  --text-light: #555; /* Warna teks ringan */
+  --gold: #e0c200; /* Warna emas */
+  --gold-hover: #ffd700; /* Warna emas saat hover */
+  --bg-light: #f8f9fa; /* Latar belakang sangat ringan */
+  --bg-lighter: #f0f8ff; /* Latar belakang lebih ringan */
+  --border-light: #eee; /* Warna border ringan */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif; /* Prioritaskan Ubuntu */
+  background-color: var(--background);
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Mencegah horizontal scroll */
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem; /* Tambahkan padding default untuk container */
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0; /* Tambahkan ini agar navbar membentang penuh */
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: rgba(31, 42, 46, 0.647); /* hitam transparan */
+  backdrop-filter: blur(10px); /* membuat isi di belakang blur */
+  -webkit-backdrop-filter: blur(10px); /* untuk Safari */
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.navbar-logo h1 {
+  color: var(--gold-hover);
+}
+
+.navbar-logo span {
+  color: var(--gold-hover);
+}
+
+/* Logo */
+.navbar .navbar-logo img {
+  height: 50px;
+  object-fit: contain;
+  padding-left: 30px;
+}
+
+/* Navbar menu */
+.navbar-nav {
+  display: flex;
+  gap: 2rem; /* Memberi jarak antar link */
+}
+
+.navbar-nav a {
+  color: #fff;
+  font-size: 1rem;
+  font-family: "Song Myung", serif; /* Gunakan Song Myung di sini */
+  transition: color 0.3s ease;
+}
+
+.navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--background);
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
+
+.navbar-nav a:hover {
+  color: var(--gold);
+}
+
+.navbar .navbar-extra a {
+  color: #fff;
+  margin: 0 0.5rem;
+}
+
+.navbar .navbar-extra a:hover {
+  color: var(--gold);
+}
+
+#Menu {
+  display: none;
+}
+
+/* NAVBAR END */
+
+/* Media queries for Navbar */
+@media (max-width: 1366px) {
+  html {
+    font-size: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  #Menu {
+    display: inline-block;
+  }
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: rgba(31, 42, 46, 0.9); /* Sedikit lebih gelap */
+    width: 18rem; /* Ukuran yang lebih masuk akal untuk menu mobile */
+    height: 100vh;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    transition: right 0.3s ease;
+    font-size: 1.5rem; /* Ukuran font lebih wajar untuk menu mobile */
+  }
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+  .navbar .navbar-logo img {
+    padding-left: 0; /* Hapus padding logo di mobile */
+  }
+}
+
+@media (max-width: 450px) {
+  .navbar .navbar-nav {
+    width: 100%; /* Menu mobile penuh lebar di layar sangat kecil */
+  }
+}
+
+/* Article Hero Section */
+.article-hero {
+  position: relative;
+  height: 50vh; /* Tinggi yang lebih kecil dari hero utama */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  filter: brightness(0.7); /* Redupkan sedikit agar teks terbaca */
+  z-index: 1;
+  margin-top: 60px; /* Sesuaikan dengan tinggi navbar */
+  /* Overlay untuk hero */
+  isolation: isolate; /* Memastikan stacking context untuk pseudo-element */
+}
+
+.article-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Overlay gelap */
+  z-index: -1; /* Di belakang konten tapi di atas gambar */
+}
+
+.article-hero-content {
+  z-index: 2;
+  position: relative; /* Pastikan konten di atas overlay */
+}
+
+.article-hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+  font-family: "Song Myung", serif;
+  color: var(--gold-hover); /* Judul warna emas */
+}
+
+.article-hero-content p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #f0f0f0;
+}
+
+/* Bagian Konten Artikel */
+.article-content-wrapper {
+  padding: 4rem 2rem;
+  background-color: var(--background);
+}
+
+.article-container {
+  max-width: 900px; /* Lebar konten artikel */
+  margin: 0 auto;
+}
+
+.article-section {
+  margin-bottom: 3rem;
+}
+
+.article-section h2 {
+  font-size: 2.2rem;
+  color: var(--text-dark);
+  font-family: "Song Myung", serif;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 0.5rem;
+  display: inline-block; /* Agar border-bottom sesuai lebar teks */
+}
+
+.article-section h3 {
+  font-size: 1.6rem;
+  color: var(--text-medium);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.article-section p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  color: var(--text-light);
+}
+
+.article-section ul {
+  list-style: disc;
+  margin-left: 20px;
+  margin-bottom: 1rem;
+  color: var(--text-light);
+}
+
+.article-section ul li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.article-quote {
+  background-color: var(--bg-lighter); /* Warna latar belakang untuk kutipan */
+  border-left: 5px solid var(--primary);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--text-light);
+  font-size: 1.05rem;
+  border-radius: 5px;
+}
+
+/* Styling untuk Accordion (Details/Summary) */
+details {
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+details[open] {
+  background-color: #e6f3ff; /* Latar belakang saat terbuka */
+  border-color: var(--primary);
+}
+
+summary {
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  padding: 0.5rem 0;
+  color: var(--text-dark);
+  font-size: 1.1rem;
+  list-style: none; /* Sembunyikan marker default */
+  position: relative;
+}
+
+summary::before {
+  content: "\002B"; /* Unicode plus sign */
+  position: absolute;
+  right: 0;
+  font-size: 1.2rem;
+  color: var(--gold);
+  transition: transform 0.3s ease;
+}
+
+details[open] summary::before {
+  content: "\2212"; /* Unicode minus sign */
+  transform: rotate(0deg);
+}
+
+details p {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+  margin-top: 0.5rem;
+  color: var(--text-light);
+}
+
+.ayat-quran {
+  background-color: #f0fff0; /* Warna latar belakang hijau muda */
+  border-left: 4px solid #4caf50; /* Border kiri hijau */
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  font-family: "Traditional Arabic", "Noto Sans Arabic", serif; /* Font untuk teks Arab */
+  font-size: 1.1rem;
+  line-height: 1.8;
+  direction: rtl; /* Untuk teks Arab */
+  text-align: right;
+  border-radius: 5px;
+  color: #333; /* Warna teks Arab */
+}
+
+.ayat-terjemahan {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #666;
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+/* Responsive Adjustments for Article Page */
+@media (max-width: 768px) {
+  .article-hero {
+    height: 40vh;
+    margin-top: 50px;
+  }
+
+  .article-hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .article-hero-content p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  .article-content-wrapper {
+    padding: 2.5rem 1rem;
+  }
+
+  .article-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-section h3 {
+    font-size: 1.4rem;
+  }
+
+  .article-section p,
+  .article-section ul li,
+  .article-quote {
+    font-size: 0.95rem;
+  }
+
+  details {
+    padding: 0.8rem;
+  }
+  summary {
+    font-size: 1rem;
+  }
+  summary::before {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .article-hero {
+    height: 35vh;
+  }
+  .article-hero-content h1 {
+    font-size: 1.8rem;
+  }
+  .article-hero-content p {
+    font-size: 0.85rem;
+  }
+  .article-content-wrapper {
+    padding: 2rem 0.5rem;
+  }
+  .article-section h2 {
+    font-size: 1.6rem;
+  }
+  .article-section h3 {
+    font-size: 1.2rem;
+  }
+  .article-section p {
+    font-size: 0.9rem;
+  }
+  .article-section ul {
+    margin-left: 15px;
+  }
+}
+
+/* Footer Section */
+.footer {
+  background-color: var(
+    --text-dark
+  ); /* Menggunakan variabel untuk warna latar belakang footer */
+  color: #fff;
+  padding: 4rem 2rem 1.5rem;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-about h3,
+.footer-links h3,
+.footer-contact h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--gold); /* Gold color for titles */
+  font-family: "Song Myung", serif;
+}
+
+.footer-about p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #f0f0f0;
+  margin-bottom: 1.5rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  color: #f0f0f0;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #f0f0f0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: var(--gold);
+  color: var(--text-dark);
+  border-color: var(--gold);
+  transform: translateY(-5px) scale(1.1);
+}
+
+.social-icon i {
+  width: 20px; /* Feather icon size */
+  height: 20px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-links ul li a {
+  color: #f0f0f0;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  display: inline-block; /* For transform effect */
+}
+
+.footer-links ul li a:hover {
+  color: var(--gold);
+  transform: translateX(5px);
+}
+
+.footer-contact .contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+  color: #f0f0f0;
+}
+
+.footer-contact .contact-item i {
+  margin-right: 0.8rem;
+  color: var(--gold); /* Gold color for contact icons */
+  width: 18px;
+  height: 18px;
+}
+
+.footer-bottom {
+  text-align: center; /* Tetap rata tengah untuk copyright */
+  padding-top: 1.5rem;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: var(--primary); /* Lighter blue for copyright */
+}
+
+/* Responsive Design for Footer */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr; /* Stack columns on smaller screens */
+  }
+
+  .footer-about,
+  .footer-links,
+  .footer-contact {
+    padding-bottom: 1.5rem; /* Add spacing between stacked sections */
+    text-align: left; /* Teks rata kiri untuk semua bagian ini */
+  }
+
+  .social-links {
+    justify-content: flex-start; /* Rata kiri untuk ikon sosial */
+  }
+
+  .footer-links ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Rata kiri untuk list items */
+  }
+
+  .footer-links ul li {
+    margin-bottom: 0.6rem;
+  }
+
+  .footer-contact .contact-item {
+    justify-content: flex-start; /* Rata kiri untuk item kontak */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 3rem 1rem 1rem;
+  }
+
+  .footer-about h3,
+  .footer-links h3,
+  .footer-contact h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-about p,
+  .footer-links ul li a,
+  .footer-contact .contact-item span {
+    font-size: 0.9rem;
+  }
+}
+/* Custom CSS for Article Detail Page */
+
+/* Article Intro Hero Section */
+.article-intro-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3rem 5%; /* Adjusted padding */
+  background-color: var(--bg-light); /* Light background for this section */
+  margin-top: 60px; /* Adjust for fixed navbar height */
+  min-height: 400px;
+  gap: 2rem; /* Gap between content and image */
+}
+
+.article-intro-hero .intro-content {
+  flex: 1;
+  max-width: 50%; /* Content takes half width */
+  text-align: left;
+}
+
+.article-intro-hero .intro-content h1 {
+  font-size: 2.8rem;
+  color: var(--text-dark);
+  font-family: "Song Myung", serif;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+}
+
+.article-intro-hero .intro-content p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.article-intro-hero .intro-button {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  background-color: #0e2f44; /* Green button */
+  color: white;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.article-intro-hero .intro-button:hover {
+  background-color: var(--gold); /* Darker green */
+  transform: translateY(-3px);
+}
+
+.article-intro-hero .intro-image {
+  flex: 1;
+  max-width: 80%; /* Image takes half width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* Ensure image corners are rounded */
+  border-radius: 10px;
+}
+
+.article-intro-hero .intro-image img {
+  width: 50%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Bagian Konten Artikel Utama (setelah intro hero) */
+.article-content-wrapper {
+  padding: 4rem 2rem;
+  background-color: var(--background);
+}
+
+.article-container {
+  max-width: 900px; /* Lebar konten artikel */
+  margin: 0 auto;
+}
+
+.anchor-offset {
+  display: block;
+  height: 60px; /* Offset for fixed navbar */
+  margin-top: -60px; /* Negative margin to bring content up */
+  visibility: hidden;
+}
+
+.article-section {
+  margin-bottom: 1.5rem;
+}
+
+.article-section h2 {
+  font-size: 2.2rem;
+  color: var(--text-dark);
+  font-family: "Song Myung", serif;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 0.5rem;
+  display: inline-block; /* Agar border-bottom sesuai lebar teks */
+}
+
+.article-section h3 {
+  font-size: 1.6rem;
+  color: var(--text-medium);
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.article-section p {
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  color: var(--text-light);
+}
+
+.article-section ul {
+  list-style: disc;
+  margin-left: 20px;
+  margin-bottom: 1rem;
+  color: var(--text-light);
+}
+
+.article-section ul li {
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+.article-quote {
+  background-color: var(--bg-lighter); /* Warna latar belakang untuk kutipan */
+  border-left: 5px solid var(--primary);
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  font-style: italic;
+  color: var(--text-light);
+  font-size: 1.05rem;
+  border-radius: 5px;
+}
+
+/* Styling untuk Accordion (Details/Summary) */
+details {
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+details[open] {
+  background-color: #e6f3ff; /* Latar belakang saat terbuka */
+  border-color: var(--primary);
+}
+
+summary {
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  padding: 0.5rem 0;
+  color: var(--text-dark);
+  font-size: 1.1rem;
+  list-style: none; /* Sembunyikan marker default */
+  position: relative;
+}
+
+summary::before {
+  content: "\002B"; /* Unicode plus sign */
+  position: absolute;
+  right: 0;
+  font-size: 1.2rem;
+  color: var(--gold);
+  transition: transform 0.3s ease;
+}
+
+details[open] summary::before {
+  content: "\2212"; /* Unicode minus sign */
+  transform: rotate(0deg);
+}
+
+details p {
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-light);
+  margin-top: 0.5rem;
+  color: var(--text-light);
+}
+
+.ayat-quran {
+  background-color: #f0fff0; /* Warna latar belakang hijau muda */
+  border-left: 4px solid #4caf50; /* Border kiri hijau */
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  font-family: "Traditional Arabic", "Noto Sans Arabic", serif; /* Font untuk teks Arab */
+  font-size: 1.1rem;
+  line-height: 1.8;
+  direction: rtl; /* Untuk teks Arab */
+  text-align: right;
+  border-radius: 5px;
+  color: #333; /* Warna teks Arab */
+}
+
+.ayat-terjemahan {
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #666;
+  margin-top: 0.5rem;
+  text-align: left;
+}
+
+/* Download Section */
+.download-section {
+  background-color: white; /* Latar belakang gelap */
+  color: #0e2f44;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.download-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.download-section p {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: #0e2f44;
+}
+
+.download-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 2rem;
+  background-color: #0e2f44; /* Gold button */
+  color: white; /* Dark text on gold */
+  border-radius: 30px;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.download-button:hover {
+  background-color: var(--gold-hover);
+  transform: translateY(-3px);
+}
+
+.download-button i {
+  width: 20px;
+  height: 20px;
+}
+
+/* Responsive Adjustments for Article Page */
+@media (max-width: 992px) {
+  .article-intro-hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 2.5rem 1rem;
+    min-height: auto;
+  }
+  .article-intro-hero .intro-content {
+    max-width: 100%; /* Konten menjadi full width */
+  }
+  .article-intro-hero .intro-image {
+    display: none; /* FOTO MENGHILANG DI TABLET DAN MOBILE */
+  }
+}
+
+@media (max-width: 768px) {
+  .article-intro-hero .intro-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .article-intro-hero .intro-content p {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+  /* Mengatur judul dan button di tengah saat foto hilang */
+  .article-intro-hero .intro-content {
+    text-align: center; /* Judul dan paragraf rata tengah */
+    max-width: 100%; /* Memastikan konten mengisi lebar penuh */
+  }
+
+  .article-content-wrapper {
+    padding: 2.5rem 1rem;
+  }
+
+  .article-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .article-section h3 {
+    font-size: 1.4rem;
+  }
+
+  .article-section p,
+  .article-section ul li,
+  .article-quote {
+    font-size: 0.95rem;
+  }
+
+  details {
+    padding: 0.8rem;
+  }
+  summary {
+    font-size: 1rem;
+  }
+  summary::before {
+    font-size: 1rem;
+  }
+
+  .download-section {
+    padding: 3rem 1rem;
+    margin: 1rem 0;
+  }
+  .download-section h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .download-button {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .article-intro-hero {
+    padding: 2rem 0.5rem;
+  }
+  .article-intro-hero .intro-content h1 {
+    font-size: 1.8rem;
+  }
+  .article-intro-hero .intro-content p {
+    font-size: 0.85rem;
+  }
+  /* .article-intro-hero .intro-image { display: none; } - sudah di 992px */
+  .article-content-wrapper {
+    padding: 2rem 0.5rem;
+  }
+  .article-section h2 {
+    font-size: 1.6rem;
+  }
+  .article-section h3 {
+    font-size: 1.2rem;
+  }
+  .article-section p {
+    font-size: 0.9rem;
+  }
+  .article-section ul {
+    margin-left: 15px;
+  }
+  .download-section {
+    padding: 2.5rem 0.5rem;
+  }
+  .download-section h2 {
+    font-size: 1.6rem;
+  }
+  .download-button {
+    font-size: 0.9rem;
+  }
+}
+/* Navigation Buttons Section */
+.navigation-section {
+  padding: 2rem;
+  background-color: var(--bg-light); /* Latar belakang untuk section navigasi */
+  border-top: 1px solid var(--border-light);
+  margin-top: 2rem;
+}
+
+.navigation-section .nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap; /* Mengizinkan wrap pada layar kecil */
+  gap: 1.5rem; /* Jarak antar elemen saat wrap */
+}
+
+.nav-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background-color: var(--text-dark); /* Warna button gelap */
+  color: white;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  white-space: nowrap; /* Mencegah teks putus baris */
+}
+
+.nav-button:hover {
+  background-color: var(--gold); /* Warna hover emas */
+  transform: translateY(-3px);
+  color: var(--text-dark); /* Teks gelap saat hover */
+}
+
+.nav-button i {
+  width: 18px;
+  height: 18px;
+}
+
+.prev-materi {
+  margin-right: auto; /* Push to the left */
+}
+
+.next-materi {
+  margin-left: auto; /* Push to the right */
+}
+
+/* Ensure download section is correctly centered within the nav container */
+.navigation-section .download-section {
+  background-color: transparent; /* Ubah background agar tidak menumpuk */
+  padding: 0; /* Hapus padding agar tidak terlalu tebal */
+  width: auto; /* Lebar otomatis */
+  flex-grow: 1; /* Biarkan mengambil ruang yang tersedia */
+  text-align: center;
+}
+
+.navigation-section .download-section h2 {
+  font-size: 1.5rem; /* Sesuaikan ukuran font untuk bagian navigasi */
+  margin-bottom: 1rem;
+  border-bottom: none; /* Hapus border bottom dari h2 di sini */
+  padding-bottom: 0;
+}
+
+.navigation-section .download-button {
+  /* Inherit styles or fine-tune if needed */
+  background-color: #0e2f44; /* Contoh: warna lain untuk button download */
+  color:white;
+}
+
+.navigation-section .download-button:hover {
+  background-color: var(--gold-hover);
+  color: white;
+}
+
+/* Responsive adjustments for navigation buttons */
+@media (max-width: 768px) {
+  .navigation-section .nav-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  .nav-button,
+  .download-section {
+    width: 100%; /* Tombol dan download section menjadi penuh lebar */
+    text-align: center;
+    margin: 0 !important; /* Override auto margins */
+  }
+  .nav-button i {
+    /* Adjust icon positioning if needed for full-width buttons */
+    margin: 0 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-button {
+    font-size: 0.9rem;
+    padding: 0.7rem 1.2rem;
+  }
+}

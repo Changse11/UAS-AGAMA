@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ImanPedia</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Song+Myung&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <nav class="navbar">
+      <a href="#Home" class="navbar-logo">
+        <img src="img/Logo.png" alt="Logo" />
+      </a>
+
+      <div class="navbar-nav">
+        <a href="#Home">Home</a>
+        <a href="#Materi">Materi</a>
+        <a href="#Dosen">Dosen Pengampu</a>
+        <a href="#Anggota">Anggota</a>
+      </div>
+
+      <div class="navbar-extra">
+        <a href="#" id="Menu"><i data-feather="menu"></i></a>
+      </div>
+    </nav>
+
+    <section id="Home" class="hero">
+      <div class="hero-section">
+        <div class="hero-background">
+          <img src="img/Masjid.jpg" alt="Background Masjid" />
+        </div>
+        <div class="hero-description">
+          <h1 class="hero-title">
+            Kenali Dan Dalami Imanmu Di
+            <span class="about-highlight">IslamPedia</span>
+          </h1>
+          <p>
+            Yuk, pelajari bareng! Di sini tersedia rangkuman materi Pendidikan
+            Agama Islam yang dirangkum oleh Kelompok 6 untuk mempermudah
+            pembelajaran dan refleksi iman.
+          </p>
+          <a href="#Materi"
+            ><button class="button-hero">Lihat Materi</button></a
+          >
+        </div>
+      </div>
+    </section>
+    <section id="Materi" class="materi-section">
+      <div class="container">
+        <div class="section-header">
+          <h1>Artikel Materi</h1>
+          <p>
+            Pelajari berbagai materi Pendidikan Agama Islam yang lengkap dan
+            mudah dipahami
+          </p>
+        </div>
+
+        <div class="materi-grid">
+          <div class="materi-card">
+            <div class="card-header">
+              <span class="card-badge">Bab 1</span>
+              <img src="img/bab1.jpg" alt="Peranan Agama" class="card-image" />
+              <h3>Peranan Agama Dalam Kehidupan</h3>
+            </div>
+            <div class="card-footer">
+              <a href="materi/bab1.html" class="read-more"
+                >Baca Artikel <i data-feather="arrow-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="materi-card">
+            <div class="card-header">
+              <span class="card-badge">Bab 2</span>
+              <img src="img/bab2.jpg" alt="Iman dan Taqwa" class="card-image" />
+              <h3>Agama Islam Dan Arti Sesungguhnya Makna Jihad</h3>
+            </div>
+            <div class="card-footer">
+              <a href="materi/bab2.html" class="read-more"
+                >Baca Artikel <i data-feather="arrow-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="materi-card">
+            <div class="card-header">
+              <span class="card-badge">Bab 3</span>
+              <img src="img/bab3.jpg" alt="Syariat Islam" class="card-image" />
+              <h3>Sumber Ajaran Islam (Al Qur'an)</h3>
+            </div>
+            <div class="card-footer">
+              <a href="materi/bab3.html" class="read-more"
+                >Baca Artikel <i data-feather="arrow-right"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="materi-card">
+            <div class="card-header">
+              <span class="card-badge">Bab 4</span>
+              <img src="img/bab4.jpg" alt="Akhlak Mulia" class="card-image" />
+              <h3>As-Sunnah/Al-Hadist sebagai Sumber Ajaran Islam</h3>
+            </div>
+            <div class="card-footer">
+              <a href="materi/bab4.html" class="read-more"
+                >Baca Artikel <i data-feather="arrow-right"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-footer">
+          <a href="materifull.html" class="view-all"
+            >Lihat Artikel Materi Lainnya Disini
+            <i data-feather="chevron-down"></i
+          ></a>
+        </div>
+      </div>
+    </section>
+    <section id="Dosen" class="dosen-section">
+      <div class="container">
+        <div class="dosen-wrapper">
+          <div class="dosen-photo">
+            <img src="img/dosen.jpg" alt="Dr. Khalid Ramdhani" class="photo" />
+          </div>
+          <div class="dosen-content">
+            <h1 class="section-title">Dosen Pengajar</h1>
+            <h2 class="dosen-name">Dr. Khalid Ramdhani, S.Pd.I., M.Pd.I</h2>
+            <h3 class="dosen-position">
+              Tenaga Pendidik - Fakultas Agama Islam
+            </h3>
+            <p class="dosen-description">
+              Bapak Dr. Khalid Ramdhani, S.Pd.I., M.Pd.I merupakan salah satu
+              tenaga pendidik di Fakultas Agama Islam, Universitas
+              Singaperbangsa Karawang (UNSIKA), dan juga mengajar pada fakultas
+              ilmu komputer khususnya pada program studi informatika UNSIKA.
+            </p>
+
+            <div class="dosen-contact">
+              <h1 class="contact-title">Kontak:</h1>
+              <div class="contact-item">
+                <i data-feather="inbox"></i>
+                <span>khalid.ramdhani@universitas.edu</span>
+              </div>
+              <div class="contact-item">
+                <i data-feather="phone"></i>
+                <span>+62 812 3456 7890</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="Anggota" class="member">
+      <h1>Anggota Kelompok</h1>
+      <section class="member-container">
+        <div class="member-card">
+          <div class="card-image">
+            <img src="img/CakraM.jpg" alt="Cakra" />
+          </div>
+          <div class="card-content">
+            <h3>Cakramukti Hasibuan</h3>
+            <p class="npm"><span>NPM</span> 2410631170062</p>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="card-image">
+            <img src="img/valdi.jpg" alt="Rivaldi" />
+          </div>
+          <div class="card-content">
+            <h3>Muhammad Rivaldi Yusa</h3>
+            <p class="npm"><span>NPM</span> 2410631170092</p>
+          </div>
+        </div>
+
+        <div class="member-card">
+          <div class="card-image">
+            <img src="img/devika.jpg" alt="Devika" />
+          </div>
+          <div class="card-content">
+            <h3>Devika Lorensa</h3>
+            <p class="npm"><span>NPM</span> 2410631170122</p>
+          </div>
+        </div>
+        <div class="member-card">
+          <div class="card-image">
+            <img src="img/Alin.jpg" alt="Alin" />
+          </div>
+          <div class="card-content">
+            <h3>Adelyn Sulaeman</h3>
+            <p class="npm"><span>NPM</span> 2410631170001</p>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-about">
+            <h3>Islamipedia</h3>
+            <p>
+              Sumber ilmu Islam terpercaya yang menyajikan berbagai artikel,
+              kajian, dan referensi Islami berdasarkan Al-Qur'an dan Sunnah.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-icon"
+                ><i data-feather="facebook"></i
+              ></a>
+              <a href="#" class="social-icon"><i data-feather="twitter"></i></a>
+              <a href="#" class="social-icon"
+                ><i data-feather="instagram"></i
+              ></a>
+              <a href="#" class="social-icon"><i data-feather="youtube"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-links">
+            <h3>Tautan Cepat</h3>
+            <ul>
+              <li><a href="#Home">Home</a></li>
+              <li><a href="#Materi">Artikel</a></li>
+              <li><a href="#Dosen">Dosen</a></li>
+              <li><a href="#Anggota">Anggota</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-contact">
+            <h3>Kontak Kami</h3>
+            <div class="contact-item">
+              <i data-feather="mail"></i>
+              <span>info@islampedia.com</span>
+            </div>
+            <div class="contact-item">
+              <i data-feather="phone"></i>
+              <span>+62 098 123 587</span>
+            </div>
+            <div class="contact-item">
+              <i data-feather="map-pin"></i>
+              <span>Karawang, Indonesia</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Islamipedia. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      feather.replace();
+    </script>
+
+    <script src="js/script.js"></script>
+  </body>
+</html>

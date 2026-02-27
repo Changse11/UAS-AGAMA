@@ -1,0 +1,1064 @@
+:root {
+  --primary: #a7c7e7;
+  --background: #ffffff;
+  --text-dark: #0e2f44; /* Warna teks gelap utama */
+  --text-medium: #2c3e50; /* Warna teks sedang */
+  --text-light: #555; /* Warna teks ringan */
+  --gold: #e0c200; /* Warna emas */
+  --gold-hover: #ffd700; /* Warna emas saat hover */
+  --bg-light: #f8f9fa; /* Latar belakang sangat ringan */
+  --bg-lighter: #f0f8ff; /* Latar belakang lebih ringan */
+  --border-light: #eee; /* Warna border ringan */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Ubuntu", "Song-Myung", sans-serif;
+  background-color: var(--background);
+  color: #000000;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Mencegah horizontal scroll */
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem; /* Tambahkan padding default untuk container */
+}
+
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0; /* Pastikan navbar membentang penuh */
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: rgba(31, 42, 46, 0.647); /* hitam transparan */
+  backdrop-filter: blur(10px); /* membuat isi di belakang blur */
+  -webkit-backdrop-filter: blur(10px); /* untuk Safari */
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.navbar-logo h1 {
+  color: var(--gold-hover); /* Menggunakan variabel gold-hover */
+}
+
+.navbar-logo span {
+  color: var(--gold-hover); /* Menggunakan variabel gold-hover */
+}
+
+/* Logo */
+.navbar .navbar-logo img {
+  height: 50px;
+  object-fit: contain;
+  padding-left: 30px;
+}
+
+/* Navbar menu */
+.navbar-nav {
+  display: flex;
+  gap: 2rem; /* Memberi jarak antar link */
+}
+
+.navbar-nav a {
+  color: #fff;
+  font-size: 1rem;
+  font-family: "Song Myung", serif; /* Konsisten menggunakan Song Myung */
+  transition: color 0.3s ease;
+}
+
+.navbar .navbar-nav a::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--background);
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
+
+.navbar-nav a:hover {
+  color: var(--gold); /* Menggunakan variabel gold */
+}
+
+.navbar .navbar-extra a {
+  color: #fff;
+  margin: 0 0.5rem;
+}
+
+.navbar .navbar-extra a:hover {
+  color: var(--gold); /* Menggunakan variabel gold */
+}
+
+#Menu {
+  display: none;
+}
+
+/* NAVBAR END */
+
+/* Media queries for Navbar */
+@media (max-width: 1366px) {
+  html {
+    font-size: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  #Menu {
+    display: inline-block;
+  }
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: rgba(31, 42, 46, 0.9); /* Sedikit lebih gelap */
+    width: 18rem; /* Ukuran yang lebih masuk akal untuk menu mobile */
+    height: 100vh;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem;
+    transition: right 0.3s ease;
+    font-size: 1.5rem; /* Ukuran font yang benar untuk menu mobile */
+  }
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+  .navbar .navbar-logo img {
+    padding-left: 0; /* Hapus padding logo di mobile */
+  }
+}
+
+@media (max-width: 450px) {
+  .navbar .navbar-nav {
+    width: 100%; /* Menu mobile penuh lebar di layar sangat kecil */
+  }
+}
+/* Hero section start */
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Background Image as Full Cover */
+.hero-background img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.6);
+  z-index: -1;
+}
+
+/* Hero Content */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 2rem;
+  text-align: center;
+  color: white;
+  animation: fadeIn 2s ease-in;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+  animation: slideInUp 1s ease-out;
+}
+
+.about-highlight {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.hero-description p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  animation: fadeIn 2s ease-in 0.5s both;
+}
+
+.button-hero {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  background-color: #ffd700;
+  color: #333;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: fadeIn 2s ease-in 1s both;
+}
+
+.button-hero:hover {
+  background-color: #e0c200;
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Text */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-description p {
+    font-size: 1rem;
+  }
+
+  .button-hero {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+/* Hero section end */
+
+/* Materi Section */
+.materi-section {
+  padding: 5rem;
+  padding-bottom: 7rem;
+  background-color: #f9f9f9;
+}
+
+.materi-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-header h1 {
+  font-size: 2.5rem;
+  color: #2c3e50;
+  margin-bottom: 1rem;
+  font-family: "Song Myung", serif;
+}
+
+.section-header p {
+  font-size: 1.1rem;
+  color: #7f8c8d;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.materi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.materi-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.materi-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  padding: 0;
+  position: relative;
+}
+
+.card-badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: #e0c200;
+  color: #0e2f44;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  z-index: 1;
+}
+
+.card-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.materi-card:hover .card-image {
+  transform: scale(1.05);
+}
+
+.card-header h3 {
+  font-size: 1.3rem;
+  color: #0e2f44;
+  padding: 1.5rem 1.5rem 0;
+  margin-bottom: 0;
+  font-family: "Song Myung", serif;
+}
+
+.card-footer {
+  padding: 1.5rem;
+  border-top: 1px solid #eee;
+  margin-top: auto;
+}
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  color: #e0c200;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.read-more i {
+  margin-left: 0.5rem;
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.read-more:hover {
+  color: #0e2f44;
+}
+
+.read-more:hover i {
+  transform: translateX(3px);
+}
+
+.section-footer {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.section-footer h2 {
+  font-size: 1.8rem;
+  color: #0e2f44;
+  margin-bottom: 1rem;
+  font-family: "Song Myung", serif;
+}
+
+.view-all {
+  display: inline-flex;
+  align-items: center;
+  background-color: #0e2f44;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.view-all i {
+  margin-left: 0.5rem;
+  width: 16px;
+  height: 16px;
+  transition: transform 0.3s ease;
+}
+
+.view-all:hover {
+  background-color: #e0c200;
+  transform: translateY(-2px);
+}
+
+.view-all:hover i {
+  transform: translateY(3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .materi-section {
+    padding: 3rem 0;
+  }
+
+  .section-header h1 {
+    font-size: 2rem;
+  }
+
+  .materi-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .card-image {
+    height: 150px;
+  }
+
+  .section-footer h2 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .materi-section .container {
+    padding: 0 1rem;
+  }
+
+  .section-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .materi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card-header h3 {
+    font-size: 1.2rem;
+  }
+}
+/* Materi Section end */
+
+/* Dosen section */
+/* Dosen Section */
+.dosen-section {
+  padding: 5rem 0;
+  background-color: #0e2f44;
+  color: white;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.dosen-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+.dosen-photo {
+  flex: 0 0 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transform: translateX(-50px);
+  opacity: 0;
+  animation: slideIn 0.8s ease-out forwards;
+}
+
+.photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.dosen-photo:hover .photo {
+  transform: scale(1.05);
+}
+
+.dosen-content {
+  flex: 1;
+  transform: translateY(30px);
+  opacity: 0;
+  animation: fadeInUp 0.8s ease-out 0.3s forwards;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #e0c200;
+  font-family: "Song Myung", serif;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 50px;
+  height: 3px;
+  background-color: #e0c200;
+}
+
+.dosen-name {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  color: white;
+  font-weight: 600;
+}
+
+.dosen-position {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  color: #a7c7e7;
+  font-weight: 400;
+}
+
+.dosen-description {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+  color: #f0f0f0;
+}
+
+/* Contact Styles */
+.dosen-contact {
+  margin-top: 2rem;
+}
+
+.contact-title {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #e0c200;
+  font-family: "Song Myung", serif;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+}
+
+.contact-icon {
+  margin-right: 10px;
+  color: #e0c200;
+  width: 20px;
+  text-align: center;
+}
+
+/* Animations */
+@keyframes slideIn {
+  from {
+    transform: translateX(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .dosen-wrapper {
+    gap: 2rem;
+  }
+
+  .dosen-photo {
+    flex: 0 0 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dosen-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .dosen-photo {
+    flex: 0 0 auto;
+    width: 70%;
+    max-width: 300px;
+    margin-bottom: 2rem;
+    transform: translateY(-30px);
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+
+  .section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .dosen-content {
+    text-align: center;
+  }
+
+  .contact-item {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .dosen-section {
+    padding: 3rem 0;
+  }
+
+  .dosen-name {
+    font-size: 1.5rem;
+  }
+
+  .dosen-position {
+    font-size: 1.1rem;
+  }
+
+  .dosen-description {
+    font-size: 1rem;
+  }
+
+  .contact-item {
+    font-size: 0.9rem;
+  }
+}
+
+/* Anggota Section */
+.member {
+  padding: 5rem 2rem;
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+.member h1 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #0e2f44;
+  font-family: "Song Myung", serif;
+  position: relative;
+  display: inline-block;
+}
+
+.member h1::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background-color: #e0c200;
+}
+
+.member-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* grid-auto-rows: minmax(300px, auto); /* Opsional: Mencoba mengatur tinggi baris otomatis */
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  align-items: start; /* Pastikan item dimulai dari atas baris grid */
+}
+
+.member-card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.8s ease-out forwards;
+  display: flex; /* Tambahkan ini agar konten card bisa menyesuaikan diri */
+  flex-direction: column; /* Pastikan konten dalam card tersusun vertikal */
+  height: auto; /* Pastikan tinggi card menyesuaikan konten */
+  min-height: 350px; /* Berikan tinggi minimum sebagai dasar, bisa diubah */
+}
+
+/* Animasi bertahap untuk setiap card */
+.member-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+.member-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+.member-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+.member-card:nth-child(4) {
+  animation-delay: 0.8s;
+}
+/* Anda bisa menambahkan .member-card:nth-child(odd/even) atau specific nth-child
+   untuk memberikan tinggi yang berbeda secara eksplisit jika diinginkan */
+/* Contoh untuk membuat card ganjil lebih tinggi sedikit (hanya contoh) */
+/*
+.member-card:nth-child(odd) {
+    min-height: 380px;
+}
+*/
+
+.member-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+  width: 100%;
+  height: 250px; /* Pertahankan tinggi gambar untuk konsistensi di awal */
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.member-card:hover .card-image img {
+  transform: scale(1.1);
+}
+
+.card-content {
+  padding: 1.5rem;
+  flex-grow: 1; /* Biarkan konten mengisi sisa ruang */
+  display: flex; /* Jadikan flex container */
+  flex-direction: column; /* Tata elemen dalam kolom */
+  justify-content: center; /* Pusatkan konten vertikal */
+  align-items: center; /* Pusatkan konten horizontal */
+  text-align: center; /* Pastikan teks rata tengah */
+}
+
+.card-content h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #0e2f44;
+  font-weight: 600;
+}
+
+.card-content .npm {
+  color: #e0c200;
+  font-size: 0.9rem;
+}
+
+.card-content .npm span {
+  font-weight: 600;
+  color: #0e2f44;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .member {
+    padding: 4rem 2rem;
+  }
+
+  .member-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .member-card {
+    min-height: 320px; /* Sedikit sesuaikan min-height untuk tablet */
+  }
+
+  /* Contoh untuk membuat card pertama dan ketiga sedikit berbeda tingginya di tablet */
+  .member-card:nth-child(odd) {
+    min-height: 340px; /* Sedikit lebih tinggi */
+  }
+  .member-card:nth-child(even) {
+    min-height: 320px; /* Lebih pendek */
+  }
+}
+
+@media (max-width: 768px) {
+  .member h1 {
+    font-size: 2rem;
+  }
+
+  .card-image {
+    height: 200px; /* Sesuaikan tinggi gambar untuk ukuran lebih kecil */
+  }
+
+  .member-card {
+    min-height: 300px; /* Min-height default untuk mobile */
+  }
+  /* Ini yang akan membuat ukuran card berbeda saat dikecilkan.
+     Anda bisa menyesuaikan nilai min-height untuk setiap card atau pola tertentu. */
+  .member-card:nth-child(1) {
+    min-height: 310px; /* Card pertama sedikit lebih tinggi */
+  }
+  .member-card:nth-child(2) {
+    min-height: 280px; /* Card kedua sedikit lebih pendek */
+  }
+  .member-card:nth-child(3) {
+    min-height: 320px; /* Card ketiga lebih tinggi dari kedua */
+  }
+  .member-card:nth-child(4) {
+    min-height: 290px; /* Card keempat di antara 1 dan 2 */
+  }
+}
+
+@media (max-width: 576px) {
+  .member-container {
+    grid-template-columns: 1fr; /* Kembali ke satu kolom di mobile */
+    max-width: 350px;
+  }
+
+  .member-card {
+    max-width: 300px;
+    margin: 0 auto;
+    min-height: 280px; /* Tinggi dasar untuk satu kolom */
+  }
+  /* Atur perbedaan tinggi untuk mode 1 kolom */
+  .member-card:nth-child(1) {
+    min-height: 290px;
+  }
+  .member-card:nth-child(2) {
+    min-height: 260px;
+  }
+  .member-card:nth-child(3) {
+    min-height: 300px;
+  }
+  .member-card:nth-child(4) {
+    min-height: 270px;
+  }
+
+  .card-image {
+    height: 180px; /* Lebih kecil lagi untuk layar sangat sempit */
+  }
+}
+
+/* Footer Section */
+/* Footer Section */
+.footer {
+  background-color: #0e2f44;
+  color: #fff;
+  padding: 4rem 2rem 1.5rem;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.footer .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-about h3,
+.footer-links h3,
+.footer-contact h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: #e0c200; /* Gold color for titles */
+  font-family: "Song Myung", serif;
+}
+
+.footer-about p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #f0f0f0;
+  margin-bottom: 1.5rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.social-icon {
+  color: #f0f0f0;
+  width: 38px;
+  height: 38px;
+  border: 1px solid #f0f0f0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  background-color: #e0c200;
+  color: #0e2f44;
+  border-color: #e0c200;
+  transform: translateY(-5px) scale(1.1);
+}
+
+.social-icon i {
+  width: 20px; /* Feather icon size */
+  height: 20px;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links ul li {
+  margin-bottom: 0.8rem;
+}
+
+.footer-links ul li a {
+  color: #f0f0f0;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  display: inline-block; /* For transform effect */
+}
+
+.footer-links ul li a:hover {
+  color: #e0c200;
+  transform: translateX(5px);
+}
+
+.footer-contact .contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+  color: #f0f0f0;
+}
+
+.footer-contact .contact-item i {
+  margin-right: 0.8rem;
+  color: #e0c200; /* Gold color for contact icons */
+  width: 18px;
+  height: 18px;
+}
+
+.footer-bottom {
+  text-align: center; /* Tetap rata tengah untuk copyright */
+  padding-top: 1.5rem;
+}
+
+.footer-bottom p {
+  font-size: 0.85rem;
+  color: #a7c7e7; /* Lighter blue for copyright */
+}
+
+/* Responsive Design for Footer */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    /* text-align: center; -- Hapus atau timpa ini untuk rata kiri */
+  }
+
+  .footer-about,
+  .footer-links,
+  .footer-contact {
+    padding-bottom: 1.5rem; /* Add spacing between stacked sections */
+    text-align: left; /* Teks rata kiri untuk semua bagian ini */
+  }
+
+  .social-links {
+    justify-content: flex-start; /* Rata kiri untuk ikon sosial */
+  }
+
+  .footer-links ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Rata kiri untuk list items */
+  }
+
+  .footer-links ul li {
+    margin-bottom: 0.6rem;
+  }
+
+  .footer-contact .contact-item {
+    justify-content: flex-start; /* Rata kiri untuk item kontak */
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 3rem 1rem 1rem;
+  }
+
+  .footer-about h3,
+  .footer-links h3,
+  .footer-contact h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-about p,
+  .footer-links ul li a,
+  .footer-contact .contact-item span {
+    font-size: 0.9rem;
+  }
+}
+
+
